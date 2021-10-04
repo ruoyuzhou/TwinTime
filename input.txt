@@ -1,0 +1,1 @@
+let hello ward write into input.txt
