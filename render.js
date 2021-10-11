@@ -1,12 +1,31 @@
+let holder = document.querySelector('#holder')
+let readList = document.querySelector('#readList')
 let fs = require('fs')
+holder.addEventListener('drop',(e)=>{
+    e.preventDefault();// cancel the default
+    e.stopPropagation();// prevent the bubble
+    console.log(e)
+    for(const file of e.dataTransfer.files){
+        console.log(file)
+        console.log('path of the file',file.path)
+        fs.readFile(file.path,(err,data)=>{
+            if(err){
+                console.log(err)
+            }else{
+                let newDiv = document.createElement('div')
+                newDiv.className = "readFile"
+                newDic.innerHTML = `
+                    <h3>${file.name}</h3>
+                    <pre>${data}</pre>
+                `
+                readList.appendChild(newDiv)
 
-console.log(fs)
-
-fs.writeFile('input.txt','let hello ward write into input.txt',(err)=>{
-    if(err){
-        console.log(err)
-    }else{
-        console.log('done')
+            }
+        })
     }
+})
 
+holder.addEventListener('dragover',(e)=>{
+    e.preventDefault();// cancel the default
+    e.stopPropagation();// prevent the bubble
 })
