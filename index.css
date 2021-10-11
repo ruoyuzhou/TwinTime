@@ -4,3 +4,13 @@ body {
   max-width: 38rem;
   padding: 2rem;
 }
+
+#holder{
+  width: 400px;
+  height: 400px;
+  background: grey;
+}
+
+#holder hi{
+  font-size: 30px;
+}
