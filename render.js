@@ -1,6 +1,6 @@
 let holder = document.querySelector('#holder')
 let readList = document.querySelector('#readList')
-let fs = require('fs')
+// let fs = require('fs')
 holder.addEventListener('drop',(e)=>{
     e.preventDefault();// cancel the default
     e.stopPropagation();// prevent the bubble
@@ -28,4 +28,14 @@ holder.addEventListener('drop',(e)=>{
 holder.addEventListener('dragover',(e)=>{
     e.preventDefault();// cancel the default
     e.stopPropagation();// prevent the bubble
+})
+
+const webview = document.querySelector('webview')
+
+webview.addEventListener('did-start-loading',()=>{
+    console.log('Loading....')
+})
+webview.addEventListener('did-stop-loading',()=>{
+    console.log('Done')
+    console.log(webview)
 })
