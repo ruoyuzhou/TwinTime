@@ -1,0 +1,29 @@
+<!-- this function will highlight the searching keyword -->
+
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Content searching</title>
+</head>
+
+<body>
+    <div id="content">
+        <!-- import file or content here -->
+    </div>
+    <input type="text" id="text" placeholder="enter your keyword" />
+    <script>
+        var content = document.getElementById("content");
+        var contents = content.innerHTML;
+        var text = document.getElementById("text");
+        text.onkeyup = function () {
+            var value = text.value;
+            var values = contents.split(value);
+            content.innerHTML = values.join('<span style="background:red;">' + value + '</span>');
+        };
+    </script>
+</body>
+
+</html>
